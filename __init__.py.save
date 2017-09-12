@@ -1,0 +1,38 @@
+from flask import Flask
+from flask_login import LoginManager
+from flask_simpleldap import LDAP, login_required
+from os import urandom
+import ssl
+
+
+app = Flask(__name__)
+
+app.config['WTF_CSRF_ENABLED'] = True
+app.config['SECRET_KEY'] = urandom(24)
+
+app.config['LDAP_BASE_DN'] = 'OU=users,dc=example,DC=org'
+app.config['LDAP_USERNAME'] = 'CN=user,OU=Users,DC=example,DC=org'
+app.config['LDAP_PASSWORD'] = 'password'
+app.config['LDAP_HOST'] = ''
+app.config['LDAP_PORT'] = ''
+app.config['LDAP_USE_SSL'] = True
+app.config['LDAP_LOGIN_VIEW'] = 'login'
+
+app.config['MONGO_URI'] = 'mongodb://Xwrite:ProjectWrite@192.168.0.100:27017/projectx?ssl=true&ssl_cert_reqs=ssl.CERT_'
+
+lm = LoginManager()
+lm.init_app(app)
+
+ldap = LDAP(app)
+db = connect()
+
+from TI import views
+
+def connect():
+	connection = MongoClient('192.168.0.100', 27017, ssl=True, ssl_cert_reqs=ssl.CERT_NO        handle = connection.projectx
+        handle.authenticate('Xwrite','ProjectWrite')
+        return handle
+
+if __name__=='__main__':
+        port = int(os.environ.get('PORT', 5000))
+        app.run(host='10.33.58.15', port=port, debug=True)

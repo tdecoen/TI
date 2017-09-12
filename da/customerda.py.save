@@ -1,0 +1,22 @@
+from TI.data import Customer
+from database import connect
+import json
+
+class CustomerDA:
+
+
+	def __init__(self):
+		self.__db = connect('192.168.0.100', 27017, 'Xwrite', 'ProjectWrite', 'projectx')
+
+	def find(self):
+		return self.__db.customers.find()
+
+	def findCompany(self, company):
+		data =  self.__db.customers.find({'company':company})
+		customer = Customer()
+
+		db = connect('192.168.0.100', 27017, 'Xwrite', 'ProjectWrite', 'projectx')
+json.loads(data)
+
+	def findUsername(self, username):
+		return self.__db.customers.find({'username':username})
