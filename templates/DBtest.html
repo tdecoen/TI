@@ -1,0 +1,47 @@
+<html>
+<head>
+ <title>ProjectX</title>
+</head>
+<body>
+ <h1>Customers</h1>
+ <table style="border:1px solid #ddd;" cellspacing="0" cellpadding="2" width="500">
+  <thead> 
+   <tr> 
+    <th style="border: #ddd 1px solid;">Company</th>
+    <th style="border: #ddd 1px solid;">Status</th>
+    <th colspan="4" style="border: #ddd 1px solid;">Database</th>
+    <th colspan="2" style="border: #ddd 1px solid;">Alert</th>
+    <th style="border: #ddd 1px solid;">Sensor</th>
+   </tr>
+   <tr>
+    <th style="border: #ddd 1px solid;"></th>
+    <th style="border: #ddd 1px solid;"></th>
+    <th style="border: #ddd 1px solid;">User</th>
+    <th style="border: #ddd 1px solid;">PWD</th>
+    <th style="border: #ddd 1px solid;">Port</th>
+    <th style="border: #ddd 1px solid;">Server</th>
+    <th style="border: #ddd 1px solid;">Email</th>
+    <th style="border: #ddd 1px solid;">Level</th>
+    <th style="border: #ddd 1px solid;">Ip</th>
+   </tr> 
+  </thead>
+  <tbody>
+ {% for item in list %}
+   <tr>
+    <td style="border: #ddd 1px solid;">{{item.company}}</td>
+    <td style="border: #ddd 1px solid;">{{item.status}}</td>
+    <td style="border: #ddd 1px solid;">{{item.db.user}}</td>
+    <td style="border: #ddd 1px solid;">{{item.db.pwd}}</td>
+    <td style="border: #ddd 1px solid;">{{item.db.port}}</td>
+    <td style="border: #ddd 1px solid;">{{item.db.server}}</td>
+    <td style="border: #ddd 1px solid;">{{item.alert.mail}}</td>
+    <td style="border: #ddd 1px solid;">{{item.alert.level}}</td>
+    <td style="border: #ddd 1px solid;">{{item.sensors.sensor.ip}}</td>
+   </tr>
+ {% endfor %}
+  </tbody>
+ </table>
+</body>
+
+</html>
+
